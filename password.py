@@ -1,5 +1,5 @@
 """
-Password Generator CLI
+Password Generator
 Generates secure random passwords with configurable options.
 """
 
