@@ -58,7 +58,7 @@ def generate_password(length: int, use_upper: bool, use_lower: bool,
 
 def main():
     parser = argparse.ArgumentParser(
-        description="🔐 Secure Password Generator",
+        description="Secure Password Generator",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -125,7 +125,7 @@ Examples:
         print("Error: Count must be at least 1.")
         sys.exit(1)
 
-    print(f"\n🔐 Generated Password{'s' if args.count > 1 else ''}:\n")
+    print(f"\nGenerated Password{'s' if args.count > 1 else ''}:\n")
     for i in range(args.count):
         pwd = generate_password(
             length=args.length,
