@@ -52,38 +52,40 @@ python password.py --help
 
 ## Docker Usage
 
+The docker image was build for both AMD64 and ARM64 platforms for it to run natively on more devices.
+
 ### Pull from Docker Hub
 
 ```bash
-docker pull maksimciz/password-generator:1.0
+docker pull maksimciz/password-generator:latest
 ```
 
 ### Build Locally
 
 ```bash
-docker build -t password-generator:1.0 .
+docker build -t maksimciz/password-generator:1.2 .
 ```
 
 ### Run
 
 ```bash
 # Default — 16-character password
-docker run password-generator:1.0
+docker run maksimciz/password-generator:1.2
 
 # Custom length
-docker run password-generator:1.0 --length 24
+docker run maksimciz/password-generator:1.2 --length 24
 
 # No symbols, 20 characters
-docker run password-generator:1.0 --length 20 --no-symbols
+docker run maksimciz/password-generator:1.2 --length 20 --no-symbols
 
 # Generate 5 passwords
-docker run password-generator:1.0 --count 5 --length 12
+docker run maksimciz/password-generator:1.2 --count 5 --length 12
 
-# Exclude lookalike characters
-docker run password-generator:1.0 --length 16 --exclude "O0lI1"
+# Exclude characters
+docker run maksimciz/password-generator:1.2 --length 16 --exclude "O0lI1"
 
 # Show help
-docker run password-generator:1.0 --help
+docker run maksimciz/password-generator:1.2 --help
 ```
 
 ***
@@ -106,7 +108,7 @@ ENTRYPOINT ["python", "password.py"]
 ## Security Notes
 
 - Uses Python's `secrets` module (not `random`) — backed by the OS entropy pool (`/dev/urandom`)
-- No external dependencies — zero third-party attack surface
+- No external dependencies
 - Container runs as a non-root user
 
 ***
@@ -115,5 +117,5 @@ ENTRYPOINT ["python", "password.py"]
 
 Image available at:
 ```
-docker pull maksimciz/password-generator:1.0
+docker pull maksimciz/password-generator:latest
 ```
